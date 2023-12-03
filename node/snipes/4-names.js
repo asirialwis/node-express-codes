@@ -1,6 +1,7 @@
-const secret = 'SUPER SECRET';
+// local
+const secret = 'SUPER SECRET'
+// share
+const john = 'john'
+const peter = 'peter'
 
-const name = 'John';
-const address = '123 Main St';
-
-module.exports = {name, address}
+module.exports = { john, peter }
