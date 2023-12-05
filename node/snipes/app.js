@@ -1,8 +1,5 @@
-const path = require('path');
+const _ = require('lodash')
+const items = [1,2,3,4,5]
 
-console.log(path.sep);
-
-const filePath = path.join('/contents', 'test.txt');
-
-const absolute = path.resolve(__dirname, '/contents', 'text.txt');
-console.log(absolute);
+const newItems = _.flattenDeep(items);
+console.log(newItems); // [ 1, 2, 3, 4 ]S
