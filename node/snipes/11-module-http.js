@@ -34,7 +34,7 @@ const server = http.createServer((req, res) => {
                 <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
             </head>
             <body class="container">
-                <h1 class="display-3">Welcome to our home page</h1>
+                <h1 class="display-3">Welcome to our home page Node App</h1>
             </body>
             </html>
         `);
