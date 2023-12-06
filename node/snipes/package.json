@@ -4,8 +4,8 @@
   "description": "",
   "main": "1-intro.js",
   "scripts": {
-    "start":" node app.js",
-    "web":"nodemon 11-module-http.js"
+    "start":" nodemon app.js",
+    "dev":"node app.js"
   },
   "keywords": [],
   "author": "",
