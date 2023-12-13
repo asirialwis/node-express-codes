@@ -20,7 +20,11 @@ app.get('/api/v1/tours',(req,res)=>{
 app.post('/api/v1/tours',(req,res)=>{
     // console.log(req.body);
     const newId = tours[tours.length-1].id +1;
-    const newTour = Object.assign({id: newId},req.body);
+    const newTour = Object.assign({id: newId},{
+        name: "Test Tour",
+        duration: 12,
+        difficulty: "easy"
+    });
 
     tours.push(newTour)
     fs.writeFile(`${__dirname}/dev-data/data/tours-simple.json`,JSON.stringify(tours),err=>{
