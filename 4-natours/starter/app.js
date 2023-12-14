@@ -16,12 +16,11 @@ app.get('/api/v1/tours',(req,res)=>{
     data:{tours:tours}})
 })
 
-
+//Post request
 app.post('/api/v1/tours',(req,res)=>{
-    // console.log(req.body);
     const newId = tours[tours.length-1].id +1;
     const newTour = Object.assign({id: newId},{
-        name: "Kandy Tour",
+        name: "Galle Tour",
         duration: 2,
         difficulty: "hard"
     });
@@ -34,6 +33,7 @@ app.post('/api/v1/tours',(req,res)=>{
     
 })
 
+//get request
 app.get('/api/v1/tours/:id',(req,res)=>{
     console.log(req.params);
     const id  = req.params.id * 1;
@@ -52,4 +52,27 @@ app.get('/api/v1/tours/:id',(req,res)=>{
 
 app.listen(5000 , (req,res)=>{
     console.log("App running on port 5000")
+})
+
+//patch
+
+app.patch('/api/v1/tours/:id',(req,res)=>{
+    console.log(req.params);
+    const id  = req.params.id * 1;
+
+    if(id> tours.length){
+        return res.status(404).json({status:'fail',reason:'Invalid ID'})
+    }
+    res.status(200).json({status:'success',data:{tour:'<updated...>'}})
+})
+
+//Delete
+
+app.delete('/api/v1/tours/:id',(req,res)=>{
+    console.log(req.params);
+    const id  = req.params.id * 1;
+    if(id> tours.length){
+        return res.status(404).json({status:'fail',reason:'Invalid ID'})
+    }
+    res.status(204).json({status:'success',data:null});
 })
