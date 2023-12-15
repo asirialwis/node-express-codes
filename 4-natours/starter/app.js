@@ -55,7 +55,6 @@ app.listen(5000 , (req,res)=>{
 })
 
 //patch
-
 app.patch('/api/v1/tours/:id',(req,res)=>{
     console.log(req.params);
     const id  = req.params.id * 1;
@@ -67,7 +66,6 @@ app.patch('/api/v1/tours/:id',(req,res)=>{
 })
 
 //Delete
-
 app.delete('/api/v1/tours/:id',(req,res)=>{
     console.log(req.params);
     const id  = req.params.id * 1;
