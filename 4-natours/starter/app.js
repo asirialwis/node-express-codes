@@ -85,6 +85,25 @@ const deleteTour = (req,res)=>{
     res.status(204).json({status:'success',data:null});
 }
 
+
+const getAllUsers = (req,res)=>{
+    res.status(500).json({status:'error',message:'route is not defined'})
+}
+
+const createUser = (req,res)=>{
+    res.status(500).json({status:'error',message:'route si not defined'})
+}
+const getUser = (req,res)=>{
+    res.status(500).json({status:'error',message:'route si not defined'})
+}
+const updateUser = (req,res)=>{
+    res.status(500).json({status:'error',message:'route si not defined'})
+}
+const deleteUser = (req,res)=>{
+    res.status(500).json({status:'error',message:'route is not defined'})
+}
+
+
 // app.get('/api/v1/tours',getAllTours);
 // app.get('/api/v1/tours/:id',getTour);
 // app.post('/api/v1/tours',createTour);
@@ -101,6 +120,10 @@ app
     .get(getTour)
     .patch(updateTour)
     .delete(deleteTour)
+
+app.route('/api/v1/users').get(getAllUsers).post(createUser)
+app.route('/api/v1/users/:id').get(getUser).patch(updateUser).delete(deleteUser)
+
 
 app.listen(5000 , (req,res)=>{
     console.log("App running on port 5000")
