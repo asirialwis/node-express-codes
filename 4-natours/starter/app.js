@@ -10,6 +10,7 @@ const userRouter = require('./routes/userRouter')
 app.use(express.json());
 app.use(morgan('dev'));
 
+
 app.use((req,res,next)=>{
     console.log('Hello From The MiddleWare');
     next();
