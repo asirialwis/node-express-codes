@@ -1,6 +1,16 @@
 const fs = require('fs');
 const tours = JSON.parse(fs.readFileSync(`${__dirname}/../dev-data/data/tours-simple.json`))
 
+//param Middleware
+
+exports.checkID = (req,res,next,val)=>{
+    if(req.params.id * 1> tours.length){
+        return res.status(404).json({status:'fail',reason:'Invalid ID'})
+    }
+    next();
+}
+
+
 exports.getAllTours = (req,res)=>{
     res.
     status(200).
@@ -9,7 +19,6 @@ exports.getAllTours = (req,res)=>{
     GetTime:req.requestTime,
     data:{tours:tours}})
 }
-
 
 //Post request
 exports.createTour = (req,res)=>{
@@ -33,11 +42,6 @@ exports.getTour = (req,res)=>{
     console.log(req.params);
     const id  = req.params.id * 1;
 
-    if(id> tours.length){
-        return res.status(404).json({status:'fail',reason:'Invalid ID'})
-    }
-
-
     const tour = tours.find(el=>el.id===id)
     res.
     status(200).
@@ -45,25 +49,17 @@ exports.getTour = (req,res)=>{
     })
 }
 
-
 //patch
 exports.updateTour = (req,res)=>{
     console.log(req.params);
     const id  = req.params.id * 1;
 
-    if(id> tours.length){
-        return res.status(404).json({status:'fail',reason:'Invalid ID'})
-    }
     res.status(200).json({status:'success',data:{tour:'<updated...>'}})
 }
-
 
 //Delete
 exports.deleteTour = (req,res)=>{
     console.log(req.params);
-    const id  = req.params.id * 1;
-    if(id> tours.length){
-        return res.status(404).json({status:'fail',reason:'Invalid ID'})
-    }
+    
     res.status(204).json({status:'success',data:null});
 }
