@@ -2,6 +2,7 @@ const fs = require('fs');
 const tours = JSON.parse(fs.readFileSync(`${__dirname}/../dev-data/data/tours-simple.json`))
 
 //param Middleware
+
 exports.checkID = (req,res,next,val)=>{
     if(req.params.id * 1> tours.length){
         return res.status(404).json({status:'fail',reason:'Invalid ID'})
