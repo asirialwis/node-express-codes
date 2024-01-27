@@ -1,11 +1,7 @@
 {
-	"folders": [
-		{
-			"path": ".."
-		},
-		{
-			"path": "../../../../Desktop/testings"
-		}
-	],
-	"settings": {}
+    "folders": [
+        {
+            "path": "../4-natours"
+        }
+    ]
 }
